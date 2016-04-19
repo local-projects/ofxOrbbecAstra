@@ -12,6 +12,8 @@
 #include <Astra/Astra.h>
 #include <AstraUL/AstraUL.h>
 
+const int maxDepth = 8000;
+
 class ofxOrbbecAstra : public astra::FrameReadyListener {
 
 public:

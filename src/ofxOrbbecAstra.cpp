@@ -151,6 +151,7 @@ void ofxOrbbecAstra::on_frame_ready(astra::StreamReader& reader,
             // TODO do this with a shader so it's fast?
             for (int i = 0; i < depthPixels.size(); i++) {
                 short depth = depthPixels.getColor(i).r;
+				if(depth >= maxDepth) depth = maxDepth - 1;
                 float val = depthLookupTable[depth];
                 depthImage.setColor(i, ofColor(val));
             }
@@ -169,7 +170,7 @@ void ofxOrbbecAstra::on_frame_ready(astra::StreamReader& reader,
 
 void ofxOrbbecAstra::updateDepthLookupTable() {
     // From product specs, range is 8m
-    int maxDepth = 8000;
+    int maxDepth = maxDepth;
     depthLookupTable.resize(maxDepth);
 
     // Depth values of 0 should be discarded, so set the LUT value to 0 as well
