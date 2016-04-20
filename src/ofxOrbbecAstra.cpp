@@ -169,8 +169,7 @@ void ofxOrbbecAstra::on_frame_ready(astra::StreamReader& reader,
 }
 
 void ofxOrbbecAstra::updateDepthLookupTable() {
-    // From product specs, range is 8m
-    int maxDepth = maxDepth;
+
     depthLookupTable.resize(maxDepth);
 
     // Depth values of 0 should be discarded, so set the LUT value to 0 as well
