@@ -12,7 +12,7 @@
 #include <Astra/Astra.h>
 #include <AstraUL/AstraUL.h>
 
-const int maxDepth = 8000; // From product specs, range is 8m
+const int maxDepth = 10000; // From product specs, range is 8m
 
 class ofxOrbbecAstra : public astra::FrameReadyListener {
 
